@@ -1,7 +1,7 @@
 class registerpage{
     constructor(page){
         this.page = page
-        this.registerlink = page.getByText('Register')
+        this.registerlink = page.getByRole('link', { name: 'Register' })
         this.maleradio = page.getByRole('radio',{name : 'Male'})
         this.femaleradio = page.getByRole('radio',{name : 'Female'})
         this.Firstname = page.getByRole('textbox',{name : 'First name:'})
@@ -9,7 +9,7 @@ class registerpage{
         this.email = page.getByRole('textbox',{name : 'Email:'})
         this.password = page.getByRole('textbox',{name : 'Password:'})
         this.confirmpassword = page.getByRole('textbox',{name : 'Confirm password:'})
-        this.registerbuttom = page.getByTestID('register-button')
+        this.registerbutton = page.getByRole('button',{name : 'Register'})
         this.confirmregister = page.getByRole('heading',{name : 'Register', level : '1'})
         this.continuebutton = page.getByRole('button',{name : 'Continue'})
         this.registrationconfirmationtext = page.getByText('Your registration completed')
