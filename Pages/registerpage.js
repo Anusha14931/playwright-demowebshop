@@ -6,13 +6,14 @@ class registerpage{
         this.femaleradio = page.getByRole('radio',{name : 'Female'})
         this.Firstname = page.getByRole('textbox',{name : 'First name:'})
         this.Lastname = page.getByRole('textbox',{name : 'Last name:'})
-        this.email = page.getByRole('textbox',{name : 'Email:'})
-        this.password = page.getByRole('textbox',{name : 'Password:'})
-        this.confirmpassword = page.getByRole('textbox',{name : 'Confirm password:'})
+        this.Email = page.getByRole('textbox',{name : 'Email:'})
+        this.Password = page.locator('#Password')
+
+        this.Confirmpassword = page.locator('#ConfirmPassword')
+
         this.registerbutton = page.getByRole('button',{name : 'Register'})
-        this.confirmregister = page.getByRole('heading',{name : 'Register', level : '1'})
-        this.continuebutton = page.getByRole('button',{name : 'Continue'})
-        this.registrationconfirmationtext = page.getByText('Your registration completed')
+        this.continuebutton = this.page.getByRole('button',{name : 'Continue'})
+       
 
     }
     async navigatetoDemoshop(){
@@ -21,26 +22,29 @@ class registerpage{
     async navigatetoRegisterPage(){
         await this.registerlink.click()
     }
-    async fillRegitrationForm(){
-        if(data.gender == 'Male')
-        {
-            await page.this.maleradio.click()
-        }
-        else
-        {
-            await page.this.femaleradio.click()
-        }
-        await this.Firstname.fill(data.Firstname)
-        await this.Lastname.fill(data.Lastname)
-        await this.email.fill(data.email)
-        await this.password.fill(data.password)
-        await this.confirmpassword.fill(data.password)
+    async fillRegitrationForm(fn,ln,eMail,pwd){
+        // if(data.gender == 'Male')
+        // {
+        //     await this.maleradio.click()
+        // }
+        // else
+            await this.femaleradio.click()
+        await this.Firstname.fill(fn)
+        await this.Lastname.fill(ln)
+        await this.Email.fill(eMail)
+        await this.Password.fill(pwd)
+        await this.Confirmpassword.fill(pwd)
+        await this.registerbutton.click()
     }
 
     async validateregistrationandConfirm(){
-        await expect(this.confirmregister).toBeVisible()
-        await expect(this.registrationconfirmationtext).toBeVisible()
-        await this.continuebutton.click()
+
+         let confirmregister = this.page.getByRole('heading',{name : 'Register', level : '1'})
+         
+         let registrationconfirmationtext = this.page.getByText('Your registration completed')
+         await confirmregister.isVisible()
+         await registrationconfirmationtext.isVisible()
+         await this.continuebutton.click()
     }
 
 

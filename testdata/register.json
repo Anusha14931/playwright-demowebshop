@@ -1,10 +1,10 @@
 {
     "url" : "https://demowebshop.tricentis.com/register",
     "gender" : ["male", "female"],
-    "Firstname" : "John",
-    "Lastname" : "Smith",
-    "Email" : "john.smith1546@gmail.com",
-    "Password" : "John@1234"
+    "firstname" : "John",
+    "lastname" : "Smith",
+    "email":   "john.smith1546@gmail.com",
+    "password" : "John@1234"
 
 
 }
