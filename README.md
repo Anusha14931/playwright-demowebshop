@@ -15,4 +15,4 @@ An automated end-to-end (E2E) testing framework built with **Playwright** and **
 ## 🛠️ Installation & Setup
 1. Clone the repository:
    ```bash
-   git clone [<your-repository-url>](https://github.com/Anusha14931/playwright-demowebshop)
+   git clone https://github.com/Anusha14931/playwright-demowebshop
